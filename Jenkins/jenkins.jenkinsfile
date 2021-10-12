@@ -8,7 +8,11 @@ pipeline {
     stages {
         stage ('Compile Stage') {
 
-            steps {
+            steps {def props = readProperties  file:'/Jenkins/test.properties'
+			def Var1= props['Monday']
+			def Var2= props['Tuesday']
+			echo "Var1=${Var1}"
+			echo "Var2=${Var2}"
                
                     bat 'mvn clean install'
                 }

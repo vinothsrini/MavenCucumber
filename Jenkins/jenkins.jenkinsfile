@@ -1,5 +1,5 @@
-node  {
-    //agent any
+pipeline   {
+    agent any
 	
 	
 	tools{
@@ -7,7 +7,7 @@ node  {
 	}
     stages {
         stage ('Compile Stage') {
-steps {
+
             steps {def props = readProperties  file:'/Jenkins/test.properties'
 			def Var1= props['Monday']
 			def Var2= props['Tuesday']
@@ -19,4 +19,3 @@ steps {
             }
 			}
         }
-}

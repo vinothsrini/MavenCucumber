@@ -1,7 +1,21 @@
+
+properties = null     
+
+def loadProperties() {
+    node {
+        checkout scm
+        properties = new Properties()
+        File propertiesFile = new File("${workspace}/Jenkins/test.properties")
+        properties.load(propertiesFile.newDataInputStream())
+        echo "Immediate one ${properties.repo}"
+    }
+}
 pipeline   {
     agent any
 	
-	
+	def props
+	def Var2
+	def Var1
 	tools{
 		maven 'maven_3.8_3'
 	}
@@ -9,11 +23,10 @@ pipeline   {
         stage ('Compile Stage') {
 
             steps {
-			def props = readProperties  file:'/Jenkins/test.properties'
-			def Var1= props['Monday']
-			def Var2= props['Tuesday']
-			echo "Var1=${Var1}"
-			echo "Var2=${Var2}"
+			script {
+			loadProperties()
+             echo "Later one ${properties.branch}"
+			}
                
                    // bat 'mvn clean install'
                 }

@@ -10,7 +10,7 @@ pipeline {
 
             steps {
 			script{
-			 def props = readFile file:'${env.WORKSPACE}/Jenkins/Test.properties';
+			 def props = readFile file: "${env.WORKSPACE}/Jenkins/Test.properties";
 			}
                bat "echo $props['Monday']"
                     bat 'mvn clean install'

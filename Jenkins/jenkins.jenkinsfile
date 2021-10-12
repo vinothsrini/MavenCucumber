@@ -15,7 +15,7 @@ pipeline   {
 			echo "Var1=${Var1}"
 			echo "Var2=${Var2}"
                
-                    bat 'mvn clean install'
+                   // bat 'mvn clean install'
                 }
             }
 			}

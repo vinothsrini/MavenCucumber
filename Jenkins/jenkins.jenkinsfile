@@ -13,7 +13,7 @@ pipeline {
 			script{
 			 def props = readFile file: "${env.WORKSPACE}/Jenkins/Test.properties";
 			}
-                //echo "$props['Monday']"
+                echo "$props['Monday']"
                     bat 'mvn clean install'
                 }
             }

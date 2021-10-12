@@ -12,7 +12,7 @@ pipeline {
             steps {
 			script{
 			 def props = readFile file: "${env.WORKSPACE}/Jenkins/Test.properties";
-			 echo $props
+			 echo "$props"
 			}
                 
 				
